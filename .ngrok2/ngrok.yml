@@ -1,0 +1,10 @@
+version: "2"
+authtoken: 2zEA7WUl08hsklnCuUKDslXY9FV_ziXzr7qf77cWShr6Qqmn
+
+tunnels:
+  jenkins:
+    addr: 8080
+    proto: http
+  nexus:
+    addr: 8081
+    proto: http

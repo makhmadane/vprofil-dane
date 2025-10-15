@@ -30,10 +30,9 @@
     <mirror>
       <id>${CENTRAL_REPO}</id>
       <name>${CENTRAL_REPO}</name>
-      <url>https://e2d7d3f6a11d.ngrok-free.app/repository/${NEXUS_GRP_REPO}/</url>
+      <url>https://67a9b7342411.ngrok-free.app/repository/${NEXUS_GRP_REPO}/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
-  
 
 </settings>
