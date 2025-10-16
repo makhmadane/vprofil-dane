@@ -11,7 +11,7 @@ pipeline {
 		NEXUS_PASS = 'admin123'
 		RELEASE_REPO = 'vprofile-release'
 		CENTRAL_REPO = 'vpro-maven-central'
-		NEXUSIP = '127.0.0.1'
+		NEXUSIP = 'https://15f2637f5138.ngrok-free.app/'
 		NEXUSPORT = '8081'
 		NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexus_credentials'
@@ -83,7 +83,7 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
+                    nexusUrl: "${NEXUSIP}",
                     groupId: 'QA',
                     version: "${buildVersion}",
                     repository: "${RELEASE_REPO}",
