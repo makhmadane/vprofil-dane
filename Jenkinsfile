@@ -72,30 +72,34 @@ pipeline {
             }
         }
 
-        stage('Upload to Nexus') {
-            steps {
-                script {
-                    def buildVersion = sh(script: "date +%Y%m%d%H%M%S", returnStdout: true).trim()
-                    echo "Uploading version ${buildVersion} to Nexus"
 
-                    nexusArtifactUploader(
-                        nexusVersion: 'nexus3',
-                        protocol: 'http',
-                        nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
-                        groupId: 'QA',
-                        version: "${buildVersion}",
-                        repository: "${RELEASE_REPO}",
-                        credentialsId: 'nexus_credentials',
-                        artifacts: [[
+     stage("UploadArtifact") {
+        steps {
+            script {
+                // Génère un timestamp propre pour la version
+                def buildVersion = sh(script: "date +%Y%m%d%H%M%S", returnStdout: true).trim()
+                echo "Uploading version ${buildVersion} to Nexus"
+
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
+                    groupId: 'QA',
+                    version: "${buildVersion}",
+                    repository: "${RELEASE_REPO}",
+                    credentialsId: "${NEXUS_LOGIN}",
+                    artifacts: [
+                        [
                             artifactId: 'vproapp',
                             classifier: '',
-                            file: 'target/vproapp.war',
+                            file: 'target/vprofile-v2.war',
                             type: 'war'
-                        ]]
-                    )
-                }
+                        ]
+                    ]
+                )
             }
         }
+    }
 
     }
 }
