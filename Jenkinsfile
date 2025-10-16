@@ -85,7 +85,7 @@ pipeline {
                         groupId: 'QA',
                         version: "${buildVersion}",
                         repository: "${RELEASE_REPO}",
-                        credentialsId: 'nexus-creds',
+                        credentialsId: 'nexus_credentials',
                         artifacts: [[
                             artifactId: 'vproapp',
                             classifier: '',
