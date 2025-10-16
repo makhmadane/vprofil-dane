@@ -73,13 +73,17 @@ pipeline {
         }
 
         stage("UploadArtifact"){
+            script {
+                def buildVersion = sh(script: "date +%Y%m%d%H%M%S", returnStdout: true).trim()
+                echo "Generated build version: ${buildVersion}"
+            }
             steps{
                 nexusArtifactUploader(
                   nexusVersion: 'nexus3',
                   protocol: 'http',
                   nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
                   groupId: 'QA',
-                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                  version: "${buildVersion}",
                   repository: "${RELEASE_REPO}",
                   credentialsId: "${NEXUS_LOGIN}",
                   artifacts: [
