@@ -11,7 +11,7 @@ pipeline {
 		NEXUS_PASS = 'admin123'
 		RELEASE_REPO = 'vprofile-release'
 		CENTRAL_REPO = 'vpro-maven-central'
-		NEXUSIP = '15f2637f5138.ngrok-free.app'
+		NEXUSIP = 'ceb3085cb6ca.ngrok-free.app'
 		NEXUSPORT = '8081'
 		NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexus_credentials'
